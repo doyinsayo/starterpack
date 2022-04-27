@@ -8,7 +8,7 @@ import {
   Segment
 } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { authLogin } from "../store/actions/auth";
 
 class LoginForm extends React.Component {
@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
     const { error, loading, token } = this.props;
     const { username, password } = this.state;
     if (token) {
-      return <Redirect to="/" />;
+      return <Navigate to="/" />;
     }
     return (
       <Grid

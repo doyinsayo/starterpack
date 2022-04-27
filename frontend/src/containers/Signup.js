@@ -8,7 +8,7 @@ import {
   Segment,
 } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { authSignup } from "../store/actions/auth";
  
 class RegistrationForm extends React.Component {
@@ -27,14 +27,6 @@ class RegistrationForm extends React.Component {
   this.handleChange = this.handleChange.bind(this);
 };
    
-
-  /*state = {
-    username: "",
-    email: "",
-    password1: "",
-    password2: "",
-    userType: "",
-  };*/
   
   handleSubmit = e => {
     e.preventDefault();
@@ -59,7 +51,7 @@ class RegistrationForm extends React.Component {
     const { username, email, password1, password2, userType } = this.state;
     const { error, loading, token } = this.props;
     if (token) {
-      return <Redirect to="/" />;
+      return <Navigate to="/" />;
     }
     return (
       <Grid
