@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { Routes } from "react-router";
 import Hoc from "./hoc/hoc";
 
 import Login from "./containers/Login";
@@ -8,9 +9,11 @@ import HomepageLayout from "./containers/Home";
 
 const BaseRouter = () => (
   <Hoc>
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} />
-    <Route exact path="/" component={HomepageLayout} />
+    <Routes>
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
+      <Route exact path="/" element={<HomepageLayout/>} />
+    </Routes>
   </Hoc>
 );
 

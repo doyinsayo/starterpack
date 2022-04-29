@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "homepage": "/dist",
   "private": true,
   "dependencies": {
     "@artsy/fresnel": "^3.5.0",
