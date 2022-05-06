@@ -1,4 +1,5 @@
 import axios from "axios";
+import { env } from "process";
 import * as actionTypes from "./actionTypes";
 
 export const authStart = () => {
@@ -40,7 +41,7 @@ export const authLogin = (username, password) => {
   return dispatch => {
     dispatch(authStart());
     axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/jwt/create/`, {
+      .post(`${process.env.REACT_APP_API}/auth/jwt/create/`, {
         username: username,
         password: password
       })
@@ -70,7 +71,7 @@ export const authSignup = (username, email, password1, password2, is_student) =>
       is_teacher: !is_student
     }
     axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/users/`, user)
+      .post(`${process.env.REACT_APP_API}/auth/user/`, user)
       .then(res => {
         const user = {
           token : res.data.key,
